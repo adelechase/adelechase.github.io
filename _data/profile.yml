@@ -1,0 +1,14 @@
+name: Adele Chase
+role: Librarian
+location: Columbia, South Carolina
+intro: "I help people find their next book, navigate information, and feel welcome in the library."
+bio: "I’m a librarian at Richland Library with an MLIS from the University of South Carolina. My work brings together readers’ advisory, inclusive library services, and practical technology."
+github_url: https://github.com/adelechase
+mlis_url: https://adelechase.github.io/mlis-portfolio/
+# Optional: add your preferred public email to show an email link.
+email: ""
+# Optional: upload your portrait to assets/images/ and set its path here.
+portrait: ""
+portrait_alt: "Portrait of Adele Chase"
+# Optional: upload your current résumé PDF and set its path here.
+resume: ""

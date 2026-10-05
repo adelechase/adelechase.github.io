@@ -1,0 +1,27 @@
+title: Adele Chase
+description: Librarian working in readers’ advisory, inclusive library services, and practical technology.
+url: https://adelechase.github.io
+baseurl: ""
+lang: en
+markdown: kramdown
+permalink: pretty
+collections:
+  projects:
+    output: true
+    permalink: /work/:name/
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - node_modules

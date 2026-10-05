@@ -1,0 +1,6 @@
+<article class="project-card">
+  <div class="card-top"><span class="eyebrow">{{ project.category | escape }}</span><span class="card-index" aria-hidden="true">{{ project.order | prepend: '0' }}</span></div>
+  <h3><a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h3>
+  <p>{{ project.summary | escape }}</p>
+  <span class="card-link" aria-hidden="true">Explore project <span>↗</span></span>
+</article>
