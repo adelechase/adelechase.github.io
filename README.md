@@ -1,37 +1,42 @@
-# Adele Chase — professional portfolio
+# Adele Chase | Pottery + Librarian Portfolio
 
-A custom Jekyll portfolio for https://adelechase.github.io, with warm neutrals, deep teal, and responsive layouts. This is a new site. The separate MLIS portfolio remains at /mlis-portfolio/.
+A Jekyll site published at https://adelechase.github.io.
 
-## Publish without installing anything
+- **Landing page:** `/` — two-panel choice between art and library portfolios, with the pottery/book logo.
+- **Pottery portfolio:** `/pottery/` — its own navigation, layout, typography, slideshow, Shows, and Contact pages.
+- **Librarian portfolio:** `/librarian/` — independently styled and navigated, with About, Work, Contact, and project pages.
+- **Previous MLIS portfolio:** https://adelechase.github.io/mlis-portfolio/ (separate GitHub Pages project).
 
-1. Create a **public** repository named exactly `adelechase.github.io`. Initialize it with a README so it has a `main` branch.
-2. Upload the contents of this folder to the root of that repository, preserving `_layouts`, `_includes`, `_data`, `_projects`, `assets`, and `.github/workflows`. Do not upload the enclosing `adelechase.github.io` folder or the ZIP itself. If using GitHub's browser upload, make sure the hidden `.github` folder is included; alternatively create `.github/workflows/pages.yml` in the web editor and paste the supplied workflow.
-3. Under **Settings → Pages**, select **GitHub Actions** as Source.
-4. Under **Actions → Build and publish portfolio**, run the workflow if necessary. Once it succeeds, open https://adelechase.github.io.
+## Editing the pottery portfolio
 
-The workflow builds pull requests without publishing them. Pushes to `main` publish the site.
+| Part | Files |
+|---|---|
+| Pottery gallery, slideshow ordering and alt text | `pottery/index.html` |
+| Slideshow images | `assets/images/pottery/placeholder-01.svg` through `placeholder-06.svg` |
+| Shows | `pottery/shows/index.html` |
+| Contact paragraph and external links | `pottery/contact/index.html` |
+| Pottery-only header and navigation | `_layouts/pottery.html` |
+| Pottery typography, colors, mobile layouts | `assets/css/pottery.css` |
+| Slideshow controls, autoplay, pause, swipe, responsive sizing | `assets/js/pottery.js` |
 
-## Edit content in GitHub
+The first six images are deliberately illustrated **placeholders**, not photographs of finished pottery. Once photos are ready, upload them (e.g. to `assets/images/pottery/`), update the six `<img src>` paths and descriptive alt text in `pottery/index.html`. The carousel retains its square format and crops non-square photos with `object-fit: cover`.
 
-- Main bio, contact details, optional portrait and résumé: `_data/profile.yml`.
-- Homepage structure: `index.html`.
-- About page: `about.md`.
-- Projects: Markdown files in `_projects/`. Duplicate one, change its title, category, order, summary, link, and body. It automatically appears on Work; the first three by order appear on Home.
-- Navigation: `_data/navigation.yml`.
-- Colors and layout: `assets/css/style.css`.
+The pottery site's palette is rose-charcoal `#383338`, blue-gray `#303e50`, forest-gray `#304940`, light cream `#f7eee7`, and coordinating rose, blue and sage accents. It uses Outfit throughout. Pottery menu items are defined in its dedicated layout, not in `_data/navigation.yml`. The library's menu remains separate.
 
-Keep strings with punctuation in YAML inside quotes. After an edit, commit it and GitHub automatically rebuilds the site.
+The supplied 2 Story Studios link (`https://stateoftheartsc.com/?page_id=1621`) is retained in the contact text as requested, but appeared to return a 404 when checked on October 9, 2026. Replace it with the new venue page when available.
 
-## Optional personalization
+## Editing the librarian portfolio
 
-Upload a portrait under `assets/images/`, then set `portrait: /assets/images/your-photo.jpg`. Update `portrait_alt` to a useful description. Upload a résumé PDF and set `resume: /assets/adele-chase-resume.pdf`. Set `email` only to an address you want public. Blank optional fields are hidden.
+- Library biography, optional portrait, résumé, and external links: `_data/profile.yml`.
+- Library homepage: `librarian/index.html`.
+- About, Work, and Contact pages: `about.md`, `work.html`, `contact.html` (their permalinks start with `/librarian/`).
+- Projects: `_projects/`.
+- Library-only navigation: `_data/navigation.yml`.
+- Library layout and visual styles: `_layouts/default.html`, `assets/css/style.css`.
+- Split landing page and center logo: `index.html`, `assets/images/pottery-book-logo.svg`.
 
-## Local development
+## Build and publication
 
-Install Ruby and Bundler, then run `bundle install` and `bundle exec jekyll serve`. Open http://localhost:4000. Run `JEKYLL_ENV=production bundle exec jekyll build` before publishing.
+The repository uses Jekyll 4 and a workflow in `.github/workflows/pages.yml`. GitHub Pages should use **GitHub Actions** as its publishing source. Pushes to `main` build and deploy automatically; pull requests build without deployment.
 
-## Draft status
-
-The initial bio and three project descriptions are starter copy for Adele to review. The sensory spaces project is explicitly described as a research proposal, not a completed study. No email address or résumé has been assumed.
-
-Configuration, templates, links, and responsive CSS have been inspected. This environment did not have Ruby/Jekyll available, so a real Jekyll build and browser rendering still need verification in GitHub Actions and on the published site.
+To build locally, install Ruby and Bundler, then run `bundle install` and `bundle exec jekyll serve`. Run `JEKYLL_ENV=production bundle exec jekyll build` before publishing significant changes.
