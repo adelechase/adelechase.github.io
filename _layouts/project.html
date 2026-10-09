@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="wrap project-page">
-  <a class="back-link" href="{{ '/work/' | relative_url }}">← All work</a>
+  <a class="back-link" href="{{ '/librarian/work/' | relative_url }}">← All work</a>
   <header class="page-heading"><p class="eyebrow">{{ page.category | escape }}</p><h1>{{ page.title | escape }}</h1><p class="lede">{{ page.summary | escape }}</p></header>
   <div class="prose">{{ content }}</div>
   {% if page.project_url %}<a class="button" href="{{ page.project_url }}">{{ page.link_label | default: 'View project' | escape }} <span aria-hidden="true">↗</span></a>{% endif %}
