@@ -23,7 +23,7 @@
       <a class="art-nav-exit" href="{{ '/librarian/' | relative_url }}">Librarian Portfolio</a>
     </nav>
   </header>
-  <main id="main" class="art-main">
+  <main id="main" class="art-main{% if page.pottery_nav == 'pottery' %} art-gallery-page{% endif %}">
     {{ content }}
   </main>
 </body>
