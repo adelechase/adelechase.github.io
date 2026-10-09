@@ -1,0 +1,11 @@
+---
+title: Home
+permalink: /librarian/
+---
+<section class="hero wrap">
+  <div class="hero-copy"><p class="eyebrow">{{ site.data.profile.role }} · {{ site.data.profile.location }}</p><h1>Books. People.<br><em>Possibilities.</em></h1><p class="hero-intro">{{ site.data.profile.intro }}</p><div class="actions"><a class="button" href="{{ '/librarian/work/' | relative_url }}">Explore my work <span aria-hidden="true">↗</span></a><a class="text-link" href="{{ '/librarian/about/' | relative_url }}">A little about me</a></div></div>
+  <div class="hero-panel">{% if site.data.profile.portrait != '' %}<img class="portrait" src="{{ site.data.profile.portrait | relative_url }}" alt="{{ site.data.profile.portrait_alt | escape }}">{% else %}<div class="editorial-art" aria-hidden="true"><span class="art-label">A different way<br>to look at things.</span><div class="arch arch-one"></div><div class="arch arch-two"></div><span class="art-mark">AC</span><span class="art-caption">Always curious.</span></div>{% endif %}</div>
+</section>
+<section class="intro-strip"><div class="wrap intro-inner"><p class="eyebrow">The throughline</p><p>{{ site.data.profile.bio }}</p></div></section>
+<section class="wrap section"><div class="section-heading"><div><p class="eyebrow">A few things I’ve been working on</p><h2>Selected work</h2></div><a class="text-link" href="{{ '/librarian/work/' | relative_url }}">View all work <span aria-hidden="true">↗</span></a></div><div class="project-grid">{% assign projects = site.projects | sort: 'order' %}{% for project in projects limit:3 %}{% include project-card.html %}{% endfor %}</div></section>
+<section class="wrap archive-callout"><div><p class="eyebrow">Where this started</p><h2>My MLIS portfolio</h2><p>Coursework, research, and reflections from my time at the University of South Carolina.</p></div><a class="button button-outline" href="{{ site.data.profile.mlis_url }}">Visit the archive <span aria-hidden="true">↗</span></a></section>
