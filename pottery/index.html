@@ -1,10 +1,41 @@
 ---
-title: Pottery Artist
-layout: null
+title: Pottery
+layout: pottery
 permalink: /pottery/
+pottery_nav: pottery
+pottery_theme: theme-clay
+theme_color: "#383338"
+description: Pottery by Adele Chase. Browse a rotating gallery of ceramic work.
 ---
-<!doctype html>
-<html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pottery Artist · Adele Chase</title><style>body{min-height:100svh;margin:0;display:grid;place-items:center;background:#45313f;color:#f5efe2;font-family:Georgia,serif}h1{font-size:clamp(2.5rem,9vw,6rem);font-weight:400;text-align:center;padding:1rem}</style></head>
-<body><h1>Pottery Artist</h1></body>
-</html>
+<div class="art-carousel" data-art-carousel tabindex="0" role="region" aria-roledescription="carousel" aria-label="Pottery work slideshow">
+  <div class="art-slides">
+    <figure class="art-slide" data-art-slide role="group" aria-roledescription="slide" aria-label="Image 1 of 6">
+      <img src="{{ '/assets/images/pottery/placeholder-01.svg' | relative_url }}" alt="Temporary artwork placeholder illustrating a vase.">
+    </figure>
+    <figure class="art-slide" data-art-slide role="group" aria-roledescription="slide" aria-label="Image 2 of 6" hidden>
+      <img src="{{ '/assets/images/pottery/placeholder-02.svg' | relative_url }}" alt="Temporary artwork placeholder illustrating a bowl.">
+    </figure>
+    <figure class="art-slide" data-art-slide role="group" aria-roledescription="slide" aria-label="Image 3 of 6" hidden>
+      <img src="{{ '/assets/images/pottery/placeholder-03.svg' | relative_url }}" alt="Temporary artwork placeholder illustrating a mug.">
+    </figure>
+    <figure class="art-slide" data-art-slide role="group" aria-roledescription="slide" aria-label="Image 4 of 6" hidden>
+      <img src="{{ '/assets/images/pottery/placeholder-04.svg' | relative_url }}" alt="Temporary artwork placeholder illustrating an amphora.">
+    </figure>
+    <figure class="art-slide" data-art-slide role="group" aria-roledescription="slide" aria-label="Image 5 of 6" hidden>
+      <img src="{{ '/assets/images/pottery/placeholder-05.svg' | relative_url }}" alt="Temporary artwork placeholder illustrating a bottle.">
+    </figure>
+    <figure class="art-slide" data-art-slide role="group" aria-roledescription="slide" aria-label="Image 6 of 6" hidden>
+      <img src="{{ '/assets/images/pottery/placeholder-06.svg' | relative_url }}" alt="Temporary artwork placeholder illustrating a cup.">
+    </figure>
+  </div>
+  <button class="art-carousel-button art-carousel-prev" type="button" data-art-prev aria-label="Previous image"><span aria-hidden="true">&#8592;</span></button>
+  <button class="art-carousel-button art-carousel-next" type="button" data-art-next aria-label="Next image"><span aria-hidden="true">&#8594;</span></button>
+  <div class="art-pips" role="group" aria-label="Choose an image">
+      <button type="button" data-art-dot aria-label="View image 1 of 6" aria-current="true"></button>
+      <button type="button" data-art-dot aria-label="View image 2 of 6"></button>
+      <button type="button" data-art-dot aria-label="View image 3 of 6"></button>
+      <button type="button" data-art-dot aria-label="View image 4 of 6"></button>
+      <button type="button" data-art-dot aria-label="View image 5 of 6"></button>
+      <button type="button" data-art-dot aria-label="View image 6 of 6"></button>
+  </div>
+</div>
