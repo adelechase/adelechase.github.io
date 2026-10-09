@@ -1,10 +1,57 @@
 ---
-title: Home
+layout: null
+permalink: /
 ---
-<section class="hero wrap">
-  <div class="hero-copy"><p class="eyebrow">{{ site.data.profile.role }} · {{ site.data.profile.location }}</p><h1>Books. People.<br><em>Possibilities.</em></h1><p class="hero-intro">{{ site.data.profile.intro }}</p><div class="actions"><a class="button" href="{{ '/work/' | relative_url }}">Explore my work <span aria-hidden="true">↗</span></a><a class="text-link" href="{{ '/about/' | relative_url }}">A little about me</a></div></div>
-  <div class="hero-panel">{% if site.data.profile.portrait != '' %}<img class="portrait" src="{{ site.data.profile.portrait | relative_url }}" alt="{{ site.data.profile.portrait_alt | escape }}">{% else %}<div class="editorial-art" aria-hidden="true"><span class="art-label">A different way<br>to look at things.</span><div class="arch arch-one"></div><div class="arch arch-two"></div><span class="art-mark">AC</span><span class="art-caption">Always curious.</span></div>{% endif %}</div>
-</section>
-<section class="intro-strip"><div class="wrap intro-inner"><p class="eyebrow">The throughline</p><p>{{ site.data.profile.bio }}</p></div></section>
-<section class="wrap section"><div class="section-heading"><div><p class="eyebrow">A few things I’ve been working on</p><h2>Selected work</h2></div><a class="text-link" href="{{ '/work/' | relative_url }}">View all work <span aria-hidden="true">↗</span></a></div><div class="project-grid">{% assign projects = site.projects | sort: 'order' %}{% for project in projects limit:3 %}{% include project-card.html %}{% endfor %}</div></section>
-<section class="wrap archive-callout"><div><p class="eyebrow">Where this started</p><h2>My MLIS portfolio</h2><p>Coursework, research, and reflections from my time at the University of South Carolina.</p></div><a class="button button-outline" href="{{ site.data.profile.mlis_url }}">Visit the archive <span aria-hidden="true">↗</span></a></section>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Adele Chase: pottery artist and librarian.">
+  <title>Adele Chase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--cream:#f5efe2;--plum:#45313f;--green:#173e3e}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{background:var(--green);color:var(--cream);-webkit-font-smoothing:antialiased}
+    main{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;position:relative;isolation:isolate}
+    .panel{min-width:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(1rem,4vw,4rem);color:var(--cream);text-decoration:none;position:relative;transition:filter .3s ease}
+    .panel::after{content:"";position:absolute;inset:1.15rem;border:1px solid rgba(245,239,226,.19);pointer-events:none;transition:inset .3s ease,border-color .3s ease}
+    .panel:hover{filter:brightness(1.15)}
+    .panel:hover::after{inset:.75rem;border-color:rgba(245,239,226,.42)}
+    .panel:focus-visible{outline:3px solid var(--cream);outline-offset:-9px;z-index:3}
+    .pottery{background:var(--plum)}
+    .librarian{background:var(--green)}
+    .title{display:block;max-width:100%;line-height:1.12;text-wrap:balance}
+    .pottery .title{font-family:'Italiana','Bodoni MT',Didot,serif;font-size:clamp(2rem,5.1vw,6.5rem);font-weight:400;letter-spacing:-.025em}
+    .librarian .title{font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.4rem,3.45vw,4.1rem);font-weight:400;letter-spacing:-.045em}
+    .emblem{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;border-radius:50%;width:clamp(140px,17vw,250px);height:clamp(140px,17vw,250px);display:grid;place-items:center;background:var(--cream);border:7px solid var(--cream);box-shadow:0 16px 65px rgba(0,0,0,.2);pointer-events:none}
+    .emblem img{width:98%;height:98%;object-fit:contain}
+    .pottery .title{transform:translateX(-7%)}
+    .librarian .title{transform:translateX(7%)}
+    @media(max-width:680px){
+      .panel{padding:.5rem}
+      .panel::after{inset:.45rem}
+      .pottery .title{font-size:clamp(1.35rem,5.6vw,2.4rem);transform:translateY(-115px);overflow-wrap:normal}
+      .librarian .title{font-size:clamp(1rem,4.1vw,1.8rem);transform:translateY(115px)}
+      .emblem{width:clamp(120px,37vw,180px);height:clamp(120px,37vw,180px);border-width:4px}
+    }
+    @media(prefers-reduced-motion:reduce){.panel,.panel::after{transition:none}}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="panel pottery" href="{{ '/pottery/' | relative_url }}" aria-label="Pottery Artist portfolio">
+      <span class="title">Pottery Artist</span>
+    </a>
+    <a class="panel librarian" href="{{ '/librarian/' | relative_url }}" aria-label="Librarian Portfolio">
+      <span class="title">Librarian Portfolio</span>
+    </a>
+    <div class="emblem" aria-hidden="true"><img src="{{ '/assets/images/pottery-book-logo.svg' | relative_url }}" alt=""></div>
+  </main>
+</body>
+</html>
