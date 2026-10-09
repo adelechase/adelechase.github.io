@@ -17,14 +17,14 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header wrap">
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Adele Chase home">Adele Chase<span>Librarian &amp; curious person</span></a>
+    <a class="brand" href="{{ '/librarian/' | relative_url }}" aria-label="Adele Chase home">Adele Chase<span>Librarian &amp; curious person</span></a>
     <nav aria-label="Main navigation">
       {% for item in site.data.navigation %}<a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
     </nav>
   </header>
   <main id="main">{{ content }}</main>
   <footer class="site-footer wrap">
-    <div><a class="footer-name" href="{{ '/' | relative_url }}">Adele Chase</a><p>{{ site.data.profile.location }}</p></div>
+    <div><a class="footer-name" href="{{ '/librarian/' | relative_url }}">Adele Chase</a><p>{{ site.data.profile.location }}</p></div>
     <div class="footer-links"><a href="{{ site.data.profile.mlis_url }}">MLIS portfolio <span aria-hidden="true">↗</span></a><a href="{{ site.data.profile.github_url }}">GitHub <span aria-hidden="true">↗</span></a><span>© {{ 'now' | date: '%Y' }} Adele Chase</span></div>
   </footer>
 </body>
