@@ -1,6 +1,6 @@
 ---
 title: About
-permalink: /about/
+permalink: /librarian/about/
 ---
 <div class="wrap reading-page" markdown="1">
 <header class="page-heading"><p class="eyebrow">A little about me</p><h1>Hi, I’m Adele.</h1></header>
