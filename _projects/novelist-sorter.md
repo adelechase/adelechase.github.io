@@ -4,6 +4,7 @@ category: Readers’ advisory tools
 order: 2
 summary: Turning a NoveList search into a sortable table for a closer look at the results.
 project_url: https://github.com/adelechase/novelist-sorter
+website_url: https://adelechase.github.io/novelist-sorter/
 link_label: View the repository
 ---
 ## The question
