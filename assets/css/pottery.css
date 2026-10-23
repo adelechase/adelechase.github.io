@@ -80,6 +80,19 @@ a:focus-visible, button:focus-visible {
   min-height: 0;
   padding: 14px 18px 24px;
 }
+.art-artist-statement {
+  width: min(100%, 50rem);
+  margin: clamp(2.5rem, 6vw, 4.5rem) auto;
+  padding-inline: clamp(12px, 3vw, 28px);
+  color: var(--cream);
+  font-family: 'Italiana', 'Bodoni MT', Didot, serif;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 400;
+  line-height: 1.65;
+  text-align: left;
+  text-wrap: pretty;
+}
+.art-artist-statement p { margin: 0; }
 .art-carousel {
   position: relative;
   isolation: isolate;
