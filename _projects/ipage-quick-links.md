@@ -4,6 +4,7 @@ category: Library technology
 order: 1
 summary: Bringing Goodreads information and NetGalley links into an Ingram iPage workflow.
 project_url: https://github.com/adelechase/ipage-quick-links
+website_url: https://adelechase.github.io/ipage-quick-links/
 link_label: View the repository
 ---
 ## The question
