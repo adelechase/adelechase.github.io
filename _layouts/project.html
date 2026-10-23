@@ -5,5 +5,12 @@ layout: default
   <a class="back-link" href="{{ '/librarian/work/' | relative_url }}">← All work</a>
   <header class="page-heading"><p class="eyebrow">{{ page.category | escape }}</p><h1>{{ page.title | escape }}</h1><p class="lede">{{ page.summary | escape }}</p></header>
   <div class="prose">{{ content }}</div>
-  {% if page.project_url %}<a class="button" href="{{ page.project_url }}">{{ page.link_label | default: 'View project' | escape }} <span aria-hidden="true">↗</span></a>{% endif %}
+  {% if page.website_url %}
+  <div class="actions">
+    <a class="button" href="{{ page.website_url | escape }}">Visit project website <span aria-hidden="true">↗</span></a>
+    {% if page.project_url %}<a class="button button-outline" href="{{ page.project_url }}">{{ page.link_label | default: 'View project' | escape }} <span aria-hidden="true">↗</span></a>{% endif %}
+  </div>
+  {% elsif page.project_url %}
+  <a class="button" href="{{ page.project_url }}">{{ page.link_label | default: 'View project' | escape }} <span aria-hidden="true">↗</span></a>
+  {% endif %}
 </article>
