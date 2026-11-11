@@ -1,7 +1,7 @@
 ---
 title: Sensory Spaces in Libraries
 category: Graduate research
-order: 3
+order: 4
 summary: A research proposal centered on autistic students’ experiences of academic library spaces.
 project_url: https://adelechase.github.io/mlis-portfolio/research.html
 link_label: Read the research portfolio
