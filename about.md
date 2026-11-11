@@ -6,7 +6,7 @@ permalink: /librarian/about/
 .about-profile { text-align: justify; }
 .about-profile .page-heading { margin-bottom: 1em; }
 .about-profile .page-heading h1, .about-profile .intro { display: inline; }
-.about-profile a { text-decoration-style: dotted; }
+.about-profile a { text-decoration-style: dashed; }
 </style>
 <div class="wrap reading-page">
 <p class="eyebrow">A little about me</p>
