@@ -20,7 +20,7 @@
   <header class="site-header wrap">
     <a class="brand" href="{{ '/librarian/' | relative_url }}" aria-label="Adele Chase home">Adele Chase<span>Librarian &amp; curious person</span></a>
     <nav aria-label="Main navigation">
-      {% for item in site.data.navigation %}<a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
+      {% for item in site.data.navigation %}<a href="{{ item.url | relative_url }}"{% if item.separated %} class="nav-exit"{% endif %}{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
     </nav>
   </header>
   <main id="main">{{ content }}</main>
