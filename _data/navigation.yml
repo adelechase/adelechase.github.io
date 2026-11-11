@@ -4,3 +4,6 @@
   url: /librarian/about/
 - label: Contact
   url: /librarian/contact/
+- label: Pottery Portfolio
+  url: /pottery/
+  separated: true
