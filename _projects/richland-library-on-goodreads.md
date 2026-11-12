@@ -4,6 +4,7 @@ category: Library technology
 order: 3
 summary: Checking Richland Library print holdings and Libby and Hoopla availability right from Goodreads.
 project_url: https://github.com/adelechase/richland-goodreads-firefox
+website_url: https://adelechase.github.io/richland-goodreads-firefox/
 link_label: View the repository
 ---
 ## The question
