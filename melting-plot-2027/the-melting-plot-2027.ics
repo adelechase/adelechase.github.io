@@ -31,7 +31,7 @@ DTSTART;TZID=America/New_York:20270112T180000
 DTEND;TZID=America/New_York:20270112T193000
 RRULE:FREQ=MONTHLY;BYDAY=2TU;COUNT=12
 LOCATION:Richland Library Main\, Room N\, 1431 Assembly Street\, Columbia\, SC 29201
-DESCRIPTION:Reading vibrant stories by diverse voices. In person or via Zoom. To receive the Zoom link\, email sgreen@richlandlibrary.com or achase@richlandlibrary.com. Visit https://www.richlandlibrary.com/events?keyword=The%20Melting%20Plot
+DESCRIPTION:Reading vibrant stories by diverse voices. In person at Richland Library Main\, Room N\, 1431 Assembly St.\, Columbia SC 29201. Contact sgreen@richlandlibrary.com or achase@richlandlibrary.com\, or call 803-929-3400 for any questions or to borrow a copy of the book. Visit https://www.richlandlibrary.com/events?keyword=The%20Melting%20Plot
 BEGIN:VALARM
 TRIGGER:-P1D
 ACTION:DISPLAY
