@@ -38,7 +38,7 @@
 <main>
   <section class="card" aria-labelledby="calendar-title">
     <h2 id="calendar-title">Add 2027 meeting reminders</h2>
-    <p>Every second Tuesday, 6:00–7:30 p.m. Eastern, in Room N at Richland Library Main or via Zoom.</p>
+    <p>Every second Tuesday, 6:00–7:30 p.m. Eastern, in Room N at Richland Library Main, 1431 Assembly St., Columbia SC 29201.</p>
     <p class="details" id="status" role="status">Preparing your calendar options…</p>
     <a id="google" class="button" href="https://calendar.google.com/calendar/">Add to Google Calendar</a>
     <a id="apple" class="button secondary" href="the-melting-plot-2027.ics" download="the-melting-plot-2027.ics">Add to Apple / Samsung / other calendars</a>
@@ -46,8 +46,8 @@
     <p class="fine fallback">If your phone cannot import the calendar file directly, <a href="the-melting-plot-2027.ics">download the complete 2027 .ics file</a> and open it from your device's Files or calendar app. Google Calendar's file-import option is available on desktop.</p>
   </section>
   <section class="card"><h2>2027 meeting dates</h2><ul class="dates" id="dates"></ul>
-  <p class="fine">Unknown Bonus Bites topics and the August–December book selections are not required to save the recurring meeting dates. Always check the library's event listing for updates.</p></section>
-  <section class="card"><h2>Learn more</h2><p><a href="https://www.richlandlibrary.com/events?keyword=The%20Melting%20Plot">Check upcoming Melting Plot meetings</a></p><p class="fine">For the Zoom link, contact sgreen@richlandlibrary.com or achase@richlandlibrary.com, or call 803-929-3400.</p></section>
+  </section>
+  <section class="card"><h2>Learn more</h2><p><a href="https://www.richlandlibrary.com/events?keyword=The%20Melting%20Plot">Check upcoming Melting Plot meetings</a></p><p class="fine">Always check the library\'s event listing for updates.</p><p class="fine">Contact sgreen@richlandlibrary.com or achase@richlandlibrary.com, or call 803-929-3400 for any questions or to borrow a copy of the book.</p></section>
 </main>
 <footer>The Melting Plot Book Group · Richland Library Main · 1431 Assembly Street, Columbia, SC 29201</footer>
 <script>
@@ -78,7 +78,7 @@
   }
   document.getElementById('status').textContent=remaining.length+' upcoming meeting'+(remaining.length===1?'':'s')+' in 2027.';
   const first=remaining[0];
-  const details='The Melting Plot: Reading vibrant stories by diverse voices. Second Tuesday each month, 6:00–7:30 p.m. In person at Richland Library Main, Room N, or via Zoom. For the Zoom link: sgreen@richlandlibrary.com or achase@richlandlibrary.com. Events: https://www.richlandlibrary.com/events?keyword=The%20Melting%20Plot';
+  const details='The Melting Plot: Reading vibrant stories by diverse voices. Second Tuesday each month, 6:00–7:30 p.m. In person at Richland Library Main, Room N, 1431 Assembly St., Columbia SC 29201. Contact sgreen@richlandlibrary.com or achase@richlandlibrary.com, or call 803-929-3400 for any questions or to borrow a copy of the book. Events: https://www.richlandlibrary.com/events?keyword=The%20Melting%20Plot';
   const params=new URLSearchParams({action:'TEMPLATE',text:'The Melting Plot Book Group',dates:compact(first.start)+'/'+compact(first.end),ctz:'America/New_York',details,location:'Richland Library Main, Room N, 1431 Assembly Street, Columbia, SC 29201',recur:'RRULE:FREQ=MONTHLY;BYDAY=2TU;COUNT='+remaining.length});
   document.getElementById('google').href='https://calendar.google.com/calendar/render?'+params.toString();
   const stamp=String(year)+pad(first.month)+pad(first.day);
