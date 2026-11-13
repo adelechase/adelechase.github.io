@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>The Melting Plot | Add 2027 Meetings to Your Calendar</title>
+  <meta name="description" content="Add the 2027 second-Tuesday Melting Plot Book Group meetings at Richland Library Main to Google Calendar, Apple Calendar, or another calendar app.">
+  <style>
+    :root { font-family: "Century Gothic", "Avenir Next", Arial, sans-serif; color:#212a32; background:#f3f7f8; }
+    * { box-sizing: border-box; }
+    body { margin:0; line-height:1.5; }
+    header { background:#00a8c7; color:white; padding:1.55rem 1rem; }
+    header .inner, main, footer { max-width:660px; margin:auto; }
+    .eyebrow { font-size:.83rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+    h1 { font-size:clamp(1.7rem,6vw,2.45rem); line-height:1.15; margin:.42rem 0 .55rem; }
+    header p { margin:0; font-size:.95rem; }
+    main { padding:1rem; }
+    .card { background:white; padding:1.3rem; border-radius:15px; box-shadow:0 3px 15px #14323e13; margin-bottom:1rem; }
+    h2 { font-size:1.1rem; margin:0 0 .6rem; }
+    p { margin:.4rem 0 .7rem; }
+    .button { display:block; width:100%; border:0; border-radius:9px; background:#007d99; color:white; padding:.85rem 1rem; margin:.8rem 0; text-decoration:none; text-align:center; font-size:1rem; font-weight:700; cursor:pointer; }
+    .button:focus-visible, a:focus-visible { outline:3px solid #d17b15; outline-offset:3px; }
+    .button.secondary { background:#253c46; }
+    .details { font-size:.94rem; color:#334957; }
+    .fine { font-size:.84rem; color:#4d6570; }
+    .dates { columns:2; column-gap:1rem; list-style:none; padding:0; margin:.4rem 0; }
+    .dates li { padding:.16rem 0; break-inside:avoid; }
+    .fallback { border-top:1px solid #e0ebee; padding-top:.85rem; margin-top:1rem; }
+    footer { font-size:.8rem; color:#526772; padding:0 1rem 1.5rem; }
+    a { color:#006b88; }
+    @media(max-width:400px){ .dates{columns:1;} }
+  </style>
+</head>
+<body>
+<header><div class="inner"><div class="eyebrow">Richland Library Main · Book groups</div>
+<h1>The Melting Plot</h1><p>Reading vibrant stories by diverse voices</p></div></header>
+<main>
+  <section class="card" aria-labelledby="calendar-title">
+    <h2 id="calendar-title">Add 2027 meeting reminders</h2>
+    <p>Every second Tuesday, 6:00–7:30 p.m. Eastern, in Room N at Richland Library Main or via Zoom.</p>
+    <p class="details" id="status" role="status">Preparing your calendar options…</p>
+    <a id="google" class="button" href="https://calendar.google.com/calendar/">Add to Google Calendar</a>
+    <a id="apple" class="button secondary" href="the-melting-plot-2027.ics" download="the-melting-plot-2027.ics">Add to Apple / Samsung / other calendars</a>
+    <p class="fine">Google Calendar opens a draft recurring event for you to review and save. Set your preferred alert when saving it. The downloadable calendar file includes alerts one day and one hour before each meeting.</p>
+    <p class="fine fallback">If your phone cannot import the calendar file directly, <a href="the-melting-plot-2027.ics">download the complete 2027 .ics file</a> and open it from your device's Files or calendar app. Google Calendar's file-import option is available on desktop.</p>
+  </section>
+  <section class="card"><h2>2027 meeting dates</h2><ul class="dates" id="dates"></ul>
+  <p class="fine">Unknown Bonus Bites topics and the August–December book selections are not required to save the recurring meeting dates. Always check the library's event listing for updates.</p></section>
+  <section class="card"><h2>Learn more</h2><p><a href="https://www.richlandlibrary.com/events?keyword=The%20Melting%20Plot">Check upcoming Melting Plot meetings</a></p><p class="fine">For the Zoom link, contact sgreen@richlandlibrary.com or achase@richlandlibrary.com, or call 803-929-3400.</p></section>
+</main>
+<footer>The Melting Plot Book Group · Richland Library Main · 1431 Assembly Street, Columbia, SC 29201</footer>
+<script>
+(function () {
+  const days = [12,9,9,13,11,8,13,10,14,12,9,14];
+  const year = 2027;
+  const pad = n => String(n).padStart(2, '0');
+  const compact = dt => [dt.getUTCFullYear(),pad(dt.getUTCMonth()+1),pad(dt.getUTCDate())].join('')+'T'+[pad(dt.getUTCHours()),pad(dt.getUTCMinutes()),'00'].join('')+'Z';
+  const dates = days.map((day,i) => {
+    const month=i+1, isDst=month>=4&&month<=10;
+    const start = new Date(Date.UTC(year,i,day,18+(isDst?4:5),0,0));
+    return {month,day,start,end:new Date(start.getTime()+90*60000)};
+  });
+  const now = new Date();
+  const remaining = dates.filter(m => m.end>now);
+  const ul = document.getElementById('dates');
+  dates.forEach(d => {
+    const li=document.createElement('li');
+    li.textContent=new Date(Date.UTC(year,d.month-1,d.day)).toLocaleDateString('en-US',{timeZone:'UTC',month:'long',day:'numeric'});
+    if(d.end<now) { li.style.color='#75858c'; li.textContent+=' (past)'; }
+    ul.appendChild(li);
+  });
+  if(!remaining.length) {
+    document.getElementById('status').textContent='All 2027 meetings have passed. You can still download the complete calendar for reference.';
+    document.getElementById('google').style.display='none';
+    document.getElementById('apple').style.display='none';
+    return;
+  }
+  document.getElementById('status').textContent=remaining.length+' upcoming meeting'+(remaining.length===1?'':'s')+' in 2027.';
+  const first=remaining[0];
+  const details='The Melting Plot: Reading vibrant stories by diverse voices. Second Tuesday each month, 6:00–7:30 p.m. In person at Richland Library Main, Room N, or via Zoom. For the Zoom link: sgreen@richlandlibrary.com or achase@richlandlibrary.com. Events: https://www.richlandlibrary.com/events?keyword=The%20Melting%20Plot';
+  const params=new URLSearchParams({action:'TEMPLATE',text:'The Melting Plot Book Group',dates:compact(first.start)+'/'+compact(first.end),ctz:'America/New_York',details,location:'Richland Library Main, Room N, 1431 Assembly Street, Columbia, SC 29201',recur:'RRULE:FREQ=MONTHLY;BYDAY=2TU;COUNT='+remaining.length});
+  document.getElementById('google').href='https://calendar.google.com/calendar/render?'+params.toString();
+  const stamp=String(year)+pad(first.month)+pad(first.day);
+  const escapeICS=s=>s.replace(/\\/g,'\\\\').replace(/,/g,'\\,').replace(/;/g,'\\;').replace(/\n/g,'\\n');
+  const ics=[
+    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Richland Library//Melting Plot Calendar//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:The Melting Plot 2027',
+    'BEGIN:VTIMEZONE','TZID:America/New_York',
+    'BEGIN:DAYLIGHT','TZOFFSETFROM:-0500','TZOFFSETTO:-0400','TZNAME:EDT','DTSTART:19700308T020000','RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU','END:DAYLIGHT',
+    'BEGIN:STANDARD','TZOFFSETFROM:-0400','TZOFFSETTO:-0500','TZNAME:EST','DTSTART:19701101T020000','RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU','END:STANDARD','END:VTIMEZONE',
+    'BEGIN:VEVENT','UID:the-melting-plot-2027@richlandlibrary.com','DTSTAMP:20261113T150000Z',
+    'SUMMARY:The Melting Plot Book Group','DTSTART;TZID=America/New_York:'+stamp+'T180000','DTEND;TZID=America/New_York:'+stamp+'T193000',
+    'RRULE:FREQ=MONTHLY;BYDAY=2TU;COUNT='+remaining.length,
+    'LOCATION:'+escapeICS('Richland Library Main, Room N, 1431 Assembly Street, Columbia, SC 29201'),
+    'DESCRIPTION:'+escapeICS(details),
+    'BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY','DESCRIPTION:The Melting Plot meets tomorrow at 6:00 PM.','END:VALARM',
+    'BEGIN:VALARM','TRIGGER:-PT1H','ACTION:DISPLAY','DESCRIPTION:The Melting Plot meets in one hour.','END:VALARM',
+    'END:VEVENT','END:VCALENDAR',''].join('\r\n');
+  const apple=document.getElementById('apple');
+  const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});
+  const blobUrl=URL.createObjectURL(blob);
+  apple.href=blobUrl;
+  apple.download='the-melting-plot-upcoming-2027.ics';
+})();
+</script>
+</body></html>
