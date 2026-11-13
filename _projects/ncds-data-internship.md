@@ -16,7 +16,7 @@ In 2024, I completed a data internship through the National Center for Data Serv
 
 ## What I found
 
-Survey respondents generally rated the library positively, and my analysis did not find statistically significant differences in library use or perceptions across the racial groups I examined. But the descriptive results raised questions worth exploring. A smaller percentage of white respondents rated the library as **very welcoming**, while a smaller percentage of Black respondents rated it as **very respectful of diversity**, relative to the other groups compared. I also observed gender differences in reported belonging and safety.
+Survey respondents generally rated the library positively, and my analysis did not find statistically significant differences in library use or perceptions across the racial groups I examined. But the descriptive results raised questions worth exploring. A smaller percentage of white respondents rated the library as **very welcoming**, while a smaller percentage of Black respondents rated it as **very respectful of diversity**, relative to the other groups compared. This may suggest that some members of majority groups may be resistant to diversity initiatives due to a perception that these efforts limit their personal autonomy, sparking feelings of reactance sometimes referred to as "Whitelash". I also observed gender differences in reported belonging and safety.
 
 These findings required caution. Some racial and ethnic groups were represented by very small numbers of respondents, limiting meaningful comparisons; I concentrated the statistical analysis on white, Asian, and Black respondents. The results suggested areas for further investigation, rather than establishing explanations for the differences.
 
