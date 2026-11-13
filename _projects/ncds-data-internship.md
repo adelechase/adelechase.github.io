@@ -28,11 +28,7 @@ I connected these patterns to the *Inclusion for All* framework described by Bra
 
 The presentation opens with an overview of the University of Michigan Library survey, its participants, and the project's objective. **My section begins on slide 8 and runs through slide 32.** It covers the research question, the survey's racial-ethnic breakdown, measures of belonging and safety, perceptions of welcoming and respect for diversity, collection use, research and instruction support, and recommendations informed by the *Inclusion for All* framework. The full original presentation is preserved for download and viewing.
 
-{% assign slides = site.static_files | where: 'path', '/assets/files/ncds-data-internship/FinalPresentation_Project3.pdf' | first %}
-{% assign powerpoint = site.static_files | where: 'path', '/assets/files/ncds-data-internship/FinalPresentation_Project3.pptx' | first %}
-{% assign report = site.static_files | where: 'path', '/assets/files/ncds-data-internship/Chase_Final_Report.pdf' | first %}
 
-{% if slides %}
 <div class="ncds-viewer" data-slide-pdf="{{ '/assets/files/ncds-data-internship/FinalPresentation_Project3.pdf' | relative_url }}" tabindex="0" aria-label="Presentation slide viewer; use the previous and next buttons or left and right arrow keys">
   <div class="ncds-viewer-screen">
     <canvas aria-label="Current presentation slide" role="img"></canvas>
@@ -47,24 +43,12 @@ The presentation opens with an overview of the University of Michigan Library su
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
 <script src="{{ '/assets/js/ncds-slide-viewer.js' | relative_url }}" defer></script>
-{% else %}
-<p>The interactive slide preview will appear here when the presentation files have been added to the website.</p>
-{% endif %}
 
 ## Download the deliverables
 
-{% if report %}
 <a class="ncds-download" href="{{ '/assets/files/ncds-data-internship/Chase_Final_Report.pdf' | relative_url }}" download><strong>Final report and reflection (PDF)</strong><span>My individual analysis, recommendations, and reflections on the 2024 internship.</span></a>
-{% endif %}
-{% if powerpoint %}
 <a class="ncds-download" href="{{ '/assets/files/ncds-data-internship/FinalPresentation_Project3.pptx' | relative_url }}" download><strong>Original presentation (PowerPoint)</strong><span>The complete collaborative slide deck in its original editable format.</span></a>
-{% endif %}
-{% if slides %}
 <a class="ncds-download" href="{{ '/assets/files/ncds-data-internship/FinalPresentation_Project3.pdf' | relative_url }}" download><strong>Presentation slides (PDF)</strong><span>A browser-friendly copy of the presentation for viewing or saving.</span></a>
-{% endif %}
-{% unless report and powerpoint and slides %}
-<p class="ncds-upload-note">The download links will appear here once the three deliverable files are uploaded.</p>
-{% endunless %}
 
 <style>
 .ncds-viewer{border:1px solid var(--line);background:var(--white);border-radius:6px;padding:14px;margin:24px 0 34px;max-width:850px}
