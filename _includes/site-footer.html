@@ -1,3 +1,10 @@
 <footer class="site-footer wrap">
-  <div class="footer-links"><a href="{{ site.data.profile.github_url }}">GitHub <span aria-hidden="true">↗</span></a><a href="{{ '/ai/' | relative_url }}">AI Disclosure</a><span>© {{ 'now' | date: '%Y' }} Adele Chase</span></div>
+  <div class="footer-links"><a href="{{ site.data.profile.github_url }}">GitHub <span aria-hidden="true">↗</span></a><a href="{{ '/ai/' | relative_url }}">AI Disclosure</a><span>© <span id="copyright-years">2026</span> Adele Chase</span></div>
 </footer>
+<script>
+  (function () {
+    const year = new Date().getFullYear();
+    document.getElementById('copyright-years').textContent =
+      year > 2026 ? '2026–' + year : '2026';
+  })();
+</script>
