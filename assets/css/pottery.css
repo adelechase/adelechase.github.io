@@ -211,3 +211,53 @@ body.theme-moss .art-copy p a { color: var(--sage); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
+/* Shared site footer, styled for the pottery portfolio's dark palettes. */
+.pottery-site .site-footer {
+  flex: 0 0 auto;
+  width: min(1180px, calc(100% - 96px));
+  margin-inline: auto;
+  padding: 32px 0 42px;
+  border-top: 1px solid rgba(247,238,231,.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.65;
+}
+.pottery-site .site-footer .footer-name {
+  color: var(--cream);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 23px;
+  font-weight: 400;
+  text-decoration: none;
+}
+.pottery-site .site-footer p {
+  margin: 5px 0 0;
+  color: rgba(247,238,231,.72);
+  font-size: 12px;
+}
+.pottery-site .site-footer .footer-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.pottery-site .site-footer .footer-links a {
+  color: var(--cream);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.pottery-site .site-footer .footer-links a:hover,
+.pottery-site .site-footer .footer-name:hover { color: var(--accent); }
+.pottery-site .site-footer .footer-links span { color: rgba(247,238,231,.72); }
+@media (max-width: 950px) {
+  .pottery-site .site-footer { width: calc(100% - 56px); }
+  .pottery-site .site-footer .footer-links { gap: 14px; }
+}
+@media (max-width: 700px) {
+  .pottery-site .site-footer { width: calc(100% - 40px); flex-direction: column; align-items: flex-start; gap: 18px; }
+  .pottery-site .site-footer .footer-links { gap: 18px; }
+}
