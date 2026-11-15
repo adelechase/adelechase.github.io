@@ -68,7 +68,7 @@
   dates.forEach(d => {
     const li=document.createElement('li');
     li.textContent=new Date(Date.UTC(year,d.month-1,d.day)).toLocaleDateString('en-US',{timeZone:'UTC',month:'long',day:'numeric'});
-    if(d.end<now) { li.style.color='#75858c'; li.textContent+=' (past)'; }
+    if(d.end<now) { li.style.color='#526772'; li.textContent+=' (past)'; }
     ul.appendChild(li);
   });
   if(!remaining.length) {
