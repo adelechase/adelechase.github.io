@@ -15,7 +15,11 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let current = 0;
   let timer = null;
-  let paused = false;
+  let manuallyPaused = false;
+  let hoverPaused = false;
+  let focusPaused = false;
+  const toggle = carousel.querySelector('[data-art-toggle]');
+
   const show = (i) => {
     current = (i + slides.length) % slides.length;
     slides.forEach((slide, index) => { slide.hidden = index !== current; });
@@ -24,30 +28,49 @@
       else dot.removeAttribute('aria-current');
     });
   };
+  const updateToggle = () => {
+    if (!toggle) return;
+    const label = manuallyPaused ? 'Play slideshow' : 'Pause slideshow';
+    toggle.textContent = label;
+    toggle.setAttribute('aria-label', label);
+  };
   const stop = () => { if (timer) window.clearInterval(timer); timer = null; };
   const start = () => {
     stop();
-    if (!paused && !reduceMotion.matches && !document.hidden) {
-      timer = window.setInterval(() => show(current + 1), 6500);
-    }
+    const canRotate = !manuallyPaused && !hoverPaused && !focusPaused &&
+      !reduceMotion.matches && !document.hidden;
+    carousel.setAttribute('aria-live', canRotate ? 'off' : 'polite');
+    if (canRotate) timer = window.setInterval(() => show(current + 1), 6500);
   };
-  const navigate = (i) => { show(i); start(); };
+  const navigate = (i) => {
+    show(i);
+    // Manual navigation stops automatic movement until Play is explicitly chosen.
+    manuallyPaused = true;
+    updateToggle();
+    start();
+  };
   const prev = carousel.querySelector('[data-art-prev]');
   const next = carousel.querySelector('[data-art-next]');
   prev?.addEventListener('click', () => navigate(current - 1));
   next?.addEventListener('click', () => navigate(current + 1));
   dots.forEach((dot, index) => dot.addEventListener('click', () => navigate(index)));
+  toggle?.addEventListener('click', () => {
+    manuallyPaused = !manuallyPaused;
+    if (!manuallyPaused) focusPaused = false; // Explicit Play overrides focus pause.
+    updateToggle();
+    start();
+  });
   carousel.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       event.preventDefault();
       navigate(current + (event.key === 'ArrowLeft' ? -1 : 1));
     }
   });
-  carousel.addEventListener('mouseenter', () => { paused = true; stop(); });
-  carousel.addEventListener('mouseleave', () => { paused = false; start(); });
-  carousel.addEventListener('focusin', () => { paused = true; stop(); });
+  carousel.addEventListener('mouseenter', () => { hoverPaused = true; start(); });
+  carousel.addEventListener('mouseleave', () => { hoverPaused = false; start(); });
+  carousel.addEventListener('focusin', () => { focusPaused = true; start(); });
   carousel.addEventListener('focusout', (e) => {
-    if (!carousel.contains(e.relatedTarget)) { paused = false; start(); }
+    if (!carousel.contains(e.relatedTarget)) { focusPaused = false; start(); }
   });
   document.addEventListener('visibilitychange', start);
   reduceMotion.addEventListener?.('change', start);
@@ -62,5 +85,6 @@
     if (Math.abs(delta) > 55) navigate(current + (delta < 0 ? 1 : -1));
   }, { passive: true });
   show(0);
+  updateToggle();
   start();
 })();
