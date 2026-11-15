@@ -7,7 +7,7 @@ pottery_theme: theme-clay
 theme_color: "#383338"
 description: Pottery by Adele Chase. Browse a rotating gallery of ceramic work.
 ---
-<div class="art-carousel" data-art-carousel tabindex="0" role="region" aria-roledescription="carousel" aria-label="Pottery work slideshow">
+<div class="art-carousel" data-art-carousel tabindex="0" role="region" aria-roledescription="carousel" aria-label="Pottery work slideshow" aria-live="off">
   <div class="art-slides">
     <figure class="art-slide" data-art-slide role="group" aria-roledescription="slide" aria-label="Image 1 of 5">
       <img src="{{ '/assets/images/pottery/1.png' | relative_url }}" alt="Peach and cream lidded ceramic vessel with intricate floral cutouts.">
@@ -34,6 +34,7 @@ description: Pottery by Adele Chase. Browse a rotating gallery of ceramic work.
       <button type="button" data-art-dot aria-label="View image 4 of 5"></button>
       <button type="button" data-art-dot aria-label="View image 5 of 5"></button>
   </div>
+  <button class="art-carousel-toggle" type="button" data-art-toggle aria-label="Pause slideshow">Pause slideshow</button>
 </div>
 
 <section class="art-artist-statement" aria-label="Artist's statement">
