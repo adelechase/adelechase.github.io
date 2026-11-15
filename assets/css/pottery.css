@@ -9,6 +9,7 @@
   --sage: #c4dfcf;
 }
 * { box-sizing: border-box; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 html { scroll-behavior: smooth; }
 body.pottery-site {
   min-height: 100vh;
@@ -152,25 +153,37 @@ a:focus-visible, button:focus-visible {
   bottom: clamp(13px, 3%, 28px);
   transform: translateX(-50%);
   display: flex;
-  gap: 9px;
+  gap: 8px;
   align-items: center;
-  padding: 10px 13px;
+  padding: 2px 7px;
   border-radius: 99px;
   background: rgba(36,35,41,.68);
   backdrop-filter: blur(6px);
 }
 .art-pips button {
-  border: 1px solid rgba(255,255,255,.72);
-  width: 11px;
-  height: 11px;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border: 0;
   border-radius: 50%;
   background: transparent;
   padding: 0;
+  display: grid;
+  place-items: center;
   cursor: pointer;
+}
+.art-pips button::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 50%;
+  background: transparent;
   transition: background .2s ease, transform .2s ease;
 }
-.art-pips button[aria-current="true"] { background: var(--cream); transform: scale(1.18); }
-.art-pips button:hover { background: var(--cream); }
+.art-pips button[aria-current="true"]::before { background: var(--cream); transform: scale(1.18); }
+.art-pips button:hover::before { background: var(--cream); }
+.art-pips button:focus-visible { outline: 2px solid var(--cream); outline-offset: -3px; }
 .art-copy {
   width: min(1100px, calc(100% - 46px));
   margin: clamp(58px, 11vh, 126px) auto 80px;
