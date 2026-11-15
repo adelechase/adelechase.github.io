@@ -53,6 +53,7 @@ The presentation opens with an overview of the University of Michigan Library su
 
 ## Download the deliverables
 
+<a class="ncds-download" href="{{ '/assets/files/ncds-data-internship/FinalPresentation_Project3_transcript.html' | relative_url }}" download><strong>Accessible slide transcript (HTML)</strong><span>Text for all 62 slides, including accessible descriptions of charts, diagrams, and images.</span></a>
 <a class="ncds-download" href="{{ '/assets/files/ncds-data-internship/Chase_Final_Report.pdf' | relative_url }}" download><strong>Final report and reflection (PDF)</strong><span>My individual analysis, recommendations, and reflections on the 2024 internship.</span></a>
 <a class="ncds-download" href="{{ '/assets/files/ncds-data-internship/FinalPresentation_Project3.pptx' | relative_url }}" download><strong>Original presentation (PowerPoint)</strong><span>The complete collaborative slide deck in its original editable format.</span></a>
 <a class="ncds-download" href="{{ '/assets/files/ncds-data-internship/FinalPresentation_Project3.pdf' | relative_url }}" download><strong>Presentation slides (PDF)</strong><span>A browser-friendly copy of the presentation for viewing or saving.</span></a>
