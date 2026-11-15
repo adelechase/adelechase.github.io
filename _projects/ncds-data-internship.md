@@ -31,7 +31,7 @@ The presentation opens with an overview of the University of Michigan Library su
 
 <div class="ncds-viewer" data-slide-pdf="{{ '/assets/files/ncds-data-internship/FinalPresentation_Project3.pdf' | relative_url }}" tabindex="0" aria-label="Presentation slide viewer; use the previous and next buttons or left and right arrow keys">
   <div class="ncds-viewer-screen">
-    <canvas aria-label="Current presentation slide" role="img"></canvas>
+    <canvas aria-label="Current presentation slide" aria-describedby="ncds-slide-transcript-text" role="img"></canvas>
     <p class="ncds-viewer-status" role="status" aria-live="polite">Loading presentation…</p>
   </div>
   <div class="ncds-viewer-controls">
@@ -40,6 +40,12 @@ The presentation opens with an overview of the University of Michigan Library su
     <button type="button" class="ncds-slide-button" data-next disabled aria-label="Next slide">Next →</button>
   </div>
   <p class="ncds-viewer-hint">Use the buttons or arrow keys to move through the slides. On smaller screens, tap the slides to focus the viewer before using the arrow keys.</p>
+  <details class="ncds-slide-transcript" open>
+    <summary>Read current slide text and chart descriptions</summary>
+    <div id="ncds-slide-transcript-text" class="ncds-slide-transcript-text" aria-label="Accessible content for the selected slide">
+      <p>Slide text and chart descriptions will load with the presentation. The downloadable files remain available below.</p>
+    </div>
+  </details>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
 <script src="{{ '/assets/js/ncds-slide-viewer.js' | relative_url }}" defer></script>
@@ -68,4 +74,12 @@ The presentation opens with an overview of the University of Michigan Library su
 .ncds-download span{display:block;font-size:14px;color:var(--muted);margin-top:5px;line-height:1.6}
 .ncds-upload-note{color:var(--muted);font-size:15px!important}
 @media(max-width:500px){.ncds-viewer{padding:8px}.ncds-slide-button{padding:8px;font-size:12px}.ncds-page-count{font-size:12px}.ncds-viewer-controls{gap:5px}}
+.ncds-slide-transcript{margin-top:20px;border-top:1px solid var(--line);padding:16px 4px 2px}
+.ncds-slide-transcript summary{cursor:pointer;color:var(--teal);font-weight:650;font-size:16px}
+.ncds-slide-transcript summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.ncds-slide-transcript-text{margin-top:14px;max-width:70ch}
+.ncds-slide-transcript-text h3{font:650 18px/1.5 var(--sans);margin:0 0 8px}
+.ncds-slide-transcript-text h4{font:650 16px/1.5 var(--sans);margin:14px 0 4px}
+.ncds-slide-transcript-text p{font-size:15px!important;line-height:1.65!important;margin:0 0 12px}
+.ncds-slide-transcript-text .ncds-slide-source{white-space:pre-line}
 </style>
