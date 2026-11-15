@@ -65,7 +65,7 @@
     textParagraph.className = 'ncds-slide-source';
     const text = await page.getTextContent();
     const sourceText = text.items
-      .map(item => (item.str || '') + (item.hasEOL ? '\\n' : ' '))
+      .map(item => (item.str || '') + (item.hasEOL ? String.fromCharCode(10) : ' '))
       .join('').replace(/ +/g, ' ').trim();
     textParagraph.textContent = sourceText || 'This slide contains no extractable text; see the image description below.';
     const nodes = [heading, textParagraph];
