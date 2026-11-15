@@ -8,10 +8,12 @@
   const next = viewer.querySelector('[data-next]');
   const count = viewer.querySelector('.ncds-page-count');
   const pdfjs = window.pdfjsLib;
+  const downloadTranscript = viewer.querySelector('[data-download-transcript]');
   if (!pdfjs) {
     status.textContent = 'Preview unavailable in this browser. Please use the PDF download link below.';
     const transcript = viewer.querySelector('#ncds-slide-transcript-text');
     if (transcript) transcript.textContent = 'This browser cannot load the slide text. The accessible presentation download is available below.';
+    if (downloadTranscript) downloadTranscript.disabled = true;
     return;
   }
   pdfjs.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
@@ -122,6 +124,54 @@
     const target = Math.max(1, Math.min(documentPdf.numPages, (queuedPage ?? pageNumber) + delta));
     if (target !== pageNumber) render(target);
   }
+
+  if (downloadTranscript) downloadTranscript.addEventListener('click', async () => {
+    if (!documentPdf) return;
+    downloadTranscript.disabled = true;
+    const initialLabel = downloadTranscript.textContent;
+    downloadTranscript.textContent = 'Preparing accessible transcript…';
+    const encode = (value) => String(value).replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const sections = [];
+    try {
+      for (let n = 1; n <= documentPdf.numPages; n++) {
+        const page = await documentPdf.getPage(n);
+        const contents = await page.getTextContent();
+        const source = contents.items.map(item => (item.str || '') +
+          (item.hasEOL ? String.fromCharCode(10) : ' ')).join('').replace(/ +/g, ' ').trim();
+        const textHTML = encode(source || 'No extractable text on this slide.').replace(/\\n/g, '<br>');
+        const imageHTML = imageDescriptions[n]
+          ? '<h3>Chart or image description</h3><p>' + encode(imageDescriptions[n]) + '</p>' : '';
+        sections.push('<section id="slide-' + n + '"><h2>Slide ' + n + '</h2><p>' +
+          textHTML + '</p>' + imageHTML + '</section>');
+      }
+      const docHTML = '<!doctype html><html lang="en"><head><meta charset="utf-8">' +
+        '<meta name="viewport" content="width=device-width,initial-scale=1">' +
+        '<title>Accessible text for NCDS final presentation</title>' +
+        '<style>body{max-width:75ch;margin:auto;padding:2rem 1rem;font:1rem/1.6 system-ui;color:#222}' +
+        'section{border-top:1px solid #aaa;padding:1.3rem 0}h2{font-size:1.45rem}h3{font-size:1.1rem}' +
+        'p{white-space:normal}a:focus-visible{outline:3px solid #183f3a}</style></head><body>' +
+        '<main><h1>University Library Use in Health Sciences and STEM Fields</h1>' +
+        '<p>Accessible text for all ' + documentPdf.numPages +
+        ' slides, with descriptions of charts and diagrams provided as images.</p>' +
+        sections.join('') + '</main></body></html>';
+      const url = URL.createObjectURL(new Blob([docHTML], {type: 'text/html;charset=utf-8'}));
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'NCDS_presentation_accessible_transcript.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (error) {
+      const status = viewer.querySelector('.ncds-viewer-status');
+      status.hidden = false;
+      status.textContent = 'Could not generate the transcript. Please use the accessible slide text on this page.';
+    } finally {
+      downloadTranscript.textContent = initialLabel;
+      downloadTranscript.disabled = false;
+    }
+  });
 
   previous.addEventListener('click', () => go(-1));
   next.addEventListener('click', () => go(1));
