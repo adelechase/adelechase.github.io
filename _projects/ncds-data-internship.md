@@ -46,7 +46,7 @@ The presentation opens with an overview of the University of Michigan Library su
       <p>Slide text and chart descriptions will load with the presentation. The downloadable files remain available below.</p>
     </div>
   </details>
-  <button type="button" class="ncds-transcript-download" data-download-transcript>Download all slide text and chart descriptions (HTML)</button>
+  <a class="ncds-transcript-download" href="{{ '/assets/files/ncds-data-internship/FinalPresentation_Project3_transcript.html' | relative_url }}" download>Download all slide text and chart descriptions (HTML)</a>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
 <script src="{{ '/assets/js/ncds-slide-viewer.js' | relative_url }}" defer></script>
@@ -67,7 +67,7 @@ The presentation opens with an overview of the University of Michigan Library su
 .ncds-viewer-controls{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px}
 .ncds-slide-button{padding:9px 14px;background:var(--teal);color:#fff;border:1px solid var(--teal);border-radius:3px;font:inherit;font-size:14px;cursor:pointer}
 .ncds-slide-button:disabled{cursor:not-allowed;opacity:.45}
-.ncds-slide-button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.ncds-slide-button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
 .ncds-page-count{font-size:14px;font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap}
 .ncds-viewer-hint{font-size:13px!important;color:var(--muted);line-height:1.5!important;margin:10px 0 2px}
 .ncds-download{display:block;border:1px solid var(--line);border-radius:4px;padding:16px 20px;background:var(--white);margin:0 0 12px;text-decoration:none;transition:border-color .2s}
@@ -76,9 +76,11 @@ The presentation opens with an overview of the University of Michigan Library su
 .ncds-download span{display:block;font-size:14px;color:var(--muted);margin-top:5px;line-height:1.6}
 .ncds-upload-note{color:var(--muted);font-size:15px!important}
 @media(max-width:500px){.ncds-viewer{padding:8px}.ncds-slide-button{padding:8px;font-size:12px}.ncds-page-count{font-size:12px}.ncds-viewer-controls{gap:5px}}
-.ncds-transcript-download{margin:13px 4px 0;padding:10px 14px;min-height:44px;font:600 14px/1.4 var(--sans);color:var(--teal);background:transparent;border:1px solid var(--teal);border-radius:4px;cursor:pointer}
+.ncds-transcript-download{display:inline-block;margin:13px 4px 0;padding:10px 14px;min-height:44px;font:600 14px/1.4 var(--sans);color:var(--teal);background:transparent;border:1px solid var(--teal);border-radius:4px;cursor:pointer}
 .ncds-transcript-download:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
-.ncds-transcript-download:disabled{opacity:.6;cursor:wait}
+.ncds-slide-transcript table{width:100%;border-collapse:collapse;font-size:.9rem;overflow-wrap:anywhere}
+.ncds-slide-transcript caption{text-align:left;font-weight:650;margin-block:.75rem}
+.ncds-slide-transcript th,.ncds-slide-transcript td{padding:.4em;border:1px solid var(--line);text-align:left}
 .ncds-slide-transcript{margin-top:20px;border-top:1px solid var(--line);padding:16px 4px 2px}
 .ncds-slide-transcript summary{cursor:pointer;color:var(--teal);font-weight:650;font-size:16px}
 .ncds-slide-transcript summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px}

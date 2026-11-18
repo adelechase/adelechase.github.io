@@ -4,3 +4,5 @@
 /* Keep the cross-portfolio link visually separate from librarian pages. */
 .site-header nav a.nav-exit{margin-inline-start:24px}
 @media(max-width:700px){.site-header nav a.nav-exit{margin-inline-start:14px}}
+
+.skip-link:hover { color: white; }

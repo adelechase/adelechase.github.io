@@ -18,4 +18,6 @@ My graduate research proposal explored a qualitative Photovoice approach, using 
 
 Designing an accessible space involves understanding how people experience it. This proposal placed students’ perspectives at the center of that question.
 
+[Read the sensory spaces research proposal (PDF)](/assets/files/sensory-spaces/research-proposal.pdf).
+
 The full academic context and supporting coursework are in my MLIS portfolio.

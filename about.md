@@ -1,5 +1,5 @@
 ---
-title: About
+title: About the Librarian
 permalink: /librarian/about/
 ---
 <style>
